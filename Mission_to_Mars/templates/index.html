@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+  </div>
+    <div class="container">
+        <div class="row">
+            <h3>Latest Mars News</h3>
+            <h4>{{article_title}}</h4>
+            <p>{{article_paragraph}}</p>
+        </div>
+        <div class="row">
+            <div class="col-md-7">
+              <h3>Featured Mars Image</h3>
+              <img width=100% height=100% src={{image_url}}>
+            </div>
+            <div class="col-md-5">
+              <h4>Mars Fact</h4>
+              {{ temp_fact|safe }}
+            </div>
+        </div>
+        <div class="row">
+          <h3 style="text-align:center">Mars Hemisphere</h3>
+        </div>
+        <hr>
+        <div class="row">
+
+          {% for dict_item in hemisphere_dict %}
+            {% for key, value in dict_item.items() %}
+
+              <div class="col-md-3">
+                <img src="{{value}}" width=100% height=100%>
+                <h3>{{key}}</h3>
+              </div>
+            {% endfor %}
+          {% endfor %}
+
+        </div>
+  </div>
+
+
+</body>
+
+</html>
